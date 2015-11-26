@@ -9,8 +9,10 @@
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the controller to call when that URI is requested.
 |
-*/
+ */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/about', 'AboutController@index');
+Route::get('/contact', 'ContactController@index');
+Route::get('/', 'EventsController@index');
+Route::get('/clubs', 'ClubsController@index');
+Route::get('/coaches', 'CoachesController@index');
