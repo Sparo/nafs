@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Aikido_Event;
 use Illuminate\Http\Request;
+use Storage;
 
 // use App\Http\Requests;
 // use App\Http\Controllers\Controller;
@@ -37,11 +38,38 @@ class EventsController extends Controller {
 
         unset($request['_token']);
         // dd($request->all());
-        $event = new Aikido_Event($request->all());
-
+        $event = new Aikido_Event(
+            array(
+                'event_title' => $request->get('event_title'),
+                'event_url' => $request->get('event_url') && strpos($request->get('event_url'), 'http://') === false ? 'http://' . $request->get('event_url') : $request->get('event_url'),
+                'event_address' => $request->get('event_address'),
+                'event_time' => $request->get('event_time'),
+                'event_lat' => $request->get('event_lat'),
+                'event_lon' => $request->get('event_lon'),
+                'event_description' => $request->get('event_description'),
+                'event_note' => $request->get('event_note'),
+            )
+        );
         $event->save();
 
-        return redirect()->route('/');
+        if ($request->get('event_url') === '') {
+            $event->event_url = 'events/' . $event->id;
+        }
+
+        if ($request->hasFile('event_img_url')) {
+
+            $file = $request->file('event_img_url');
+
+            $img_name = $event->id . '.' . $file->getClientOriginalExtension();
+            $img_url = '/img/' . $img_name;
+            $new_path = base_path() . '/public/img/';
+            $file->move($new_path, $img_name);
+
+            $event->event_img_url = $img_url;
+        }
+        $event->save();
+
+        return redirect('/events/create');
 
     }
 

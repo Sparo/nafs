@@ -25,7 +25,7 @@
 								<div class="col-sm-6">
 									<span class="btn btn-default btn-file">
 										Upload Image for event
-										<input type="file">
+										<input type="file" name="event_img_url">
 									</span>
 								</div>
 								<div class="col-sm-6">
@@ -65,7 +65,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<textarea name="event_description" class="form-control" id="event_description" rows="10" placeholder="Opis dogadjaja" style="width:100%"></textarea>
+							<textarea name="event_description" class="form-control" id="event_description" rows="10" placeholder="Opis dogadjaja" style="width:100%">Opis Dogadjaja</textarea>
 						</div>
 						<div class="form-group">
 							<textarea name="event_note" class="form-control" id="event_note" rows="10"  placeholder="Napomena ako je potrebno" style="width:100%"></textarea>
