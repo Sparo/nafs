@@ -20,13 +20,17 @@ elixir(function(mix) {
 		.styles([
 			'resources/assets/css/bootstrap.css',
 			'resources/assets/css/clean-blog.css',
+			'resources/assets/css/bootstrap-datetimepicker.css',
 			'public/css/app.css'
 		], 'public/css/style.css', './');
 
 	mix.scripts([
 		'jquery.js',
+		'moment.js',
 		'bootstrap.js',
-		'clean-blog.js',
+		'bootstrap-datetimepicker.js',
+		'gmaps-api.js',
+		'gmaps.js',
 		"app.js"
 	], 'public/js/app.js');
 

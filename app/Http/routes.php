@@ -11,8 +11,8 @@
 |
  */
 
-Route::get('/about', 'AboutController@index');
-Route::get('/contact', 'ContactController@index');
-Route::get('/', 'EventsController@index');
-Route::get('/clubs', 'ClubsController@index');
-Route::get('/coaches', 'CoachesController@index');
+Route::resource('/about', 'AboutController');
+Route::resource('/contact', 'ContactController');
+Route::resource('/events', 'EventsController');
+Route::resource('/clubs', 'ClubsController');
+Route::resource('/coaches', 'CoachesController');

@@ -8,68 +8,27 @@
 
 @section('main')
 
-<!-- Main Content -->
-<div class="container">
+  <!-- Main Content -->
+  <div class="container">
     <div class="row">
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="{{ asset('img/miquele.jpg') }}" alt="Seminar">
-          <div class="caption">
-            <h3>Michele Quaranta</h3>
-            <p>
-                Dojo “SEISHIN” Aikido klub <br>
-                OŠ “Branko Ćopić” Vidikovački venac br. 73 <br><br>
+      @foreach($events as $event)
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <img src="{{ $event->event_img_url or 'http://dummyimage.com/300x300/000/fff.jpg'}}" alt="{{ $event->event_title }} {{ $event->evant_address }}">
+            <div class="caption">
+              <h3>{{ $event->event_title }}</h3>
+              {!! $event->event_description !!}
+              <p>
+                <a href="{{ $event->event_url }}" target="_blank" class="btn btn-link" role="button">Procitaj vise</a>
+              </p>
 
-                TAKSA: 30 € /za članove AAS/ 40 € /ostali/
-            </p>
-
-            <p>
-                <a href="https://www.facebook.com/events/1026310160722509/" target="_blank" class="btn btn-link" role="button">procitaj vise</a>
-            </p>
-
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="{{ asset('img/miquele.jpg') }}" alt="Seminar">
-          <div class="caption">
-            <h3>Michele Quaranta</h3>
-            <p>
-                Dojo “SEISHIN” Aikido klub <br>
-                OŠ “Branko Ćopić” Vidikovački venac br. 73 <br><br>
+      @endforeach
 
-                TAKSA: 30 € /za članove AAS/ 40 € /ostali/
-            </p>
-
-            <p>
-                <a href="https://www.facebook.com/events/1026310160722509/" target="_blank" class="btn btn-link" role="button">procitaj vise</a>
-            </p>
-
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="{{ asset('img/miquele.jpg') }}" alt="Seminar">
-          <div class="caption">
-            <h3>Michele Quaranta</h3>
-            <p>
-                Dojo “SEISHIN” Aikido klub <br>
-                OŠ “Branko Ćopić” Vidikovački venac br. 73 <br><br>
-
-                TAKSA: 30 € /za članove AAS/ 40 € /ostali/
-            </p>
-
-            <p>
-                <a href="https://www.facebook.com/events/1026310160722509/" target="_blank" class="btn btn-link" role="button">procitaj vise</a>
-            </p>
-
-          </div>
-        </div>
-      </div>
     </div>
-</div>
+  </div>
 
 
 @endsection
