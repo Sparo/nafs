@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Aikido_Club;
+use App\Aikido_Coache;
 use Illuminate\Http\Request;
 
 // use App\Http\Requests;
@@ -24,7 +25,8 @@ class ClubsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('clubs/create');
+        $coaches = Aikido_Coache::orderBy('coach_level', 'desc')->get();
+        return view('clubs/create', ['coaches' => $coaches]);
     }
 
     /**

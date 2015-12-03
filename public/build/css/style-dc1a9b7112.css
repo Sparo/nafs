@@ -9223,9 +9223,25 @@ body {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+#bs-example-navbar-collapse-1 > ul > li > a {
+  color: #666 !important;
+}
+
 .caption > .description {
   max-height: 100px;
   overflow: hidden;
+}
+
+#page-header {
+  background-image: url("/img/bg.jpg");
+}
+
+#page-header .page-heading {
+  color: #666;
+}
+
+#page-header .page-heading hr {
+  border-color: #666;
 }
 
 @font-face {

@@ -19,9 +19,9 @@
 						<div class="form-group">
 							<select class="form-control" name="club_coach_id">
 								<option value="">Izaberite trenera kluba</option>
-								<option value="1">Rade Janković</option>
-								<option value="2">Velibor Vesović</option>
-								<option value="3">Boško Jelić</option>
+								@foreach($coaches as $coach)
+									<option value="{{ $coach->id }}">{{ $coach->coach_first_name }} {{ $coach->coach_last_name }}</option>
+								@endforeach
 							</select>
 						</div>
 						<div class="form-group">

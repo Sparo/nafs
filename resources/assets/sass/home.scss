@@ -4,3 +4,14 @@
 	overflow:hidden;
 }
 
+
+#page-header {
+	background-image: url('/img/bg.jpg');
+	.page-heading {
+		color: #666;
+		hr {
+			border-color: #666;
+			}
+	}
+}
+
