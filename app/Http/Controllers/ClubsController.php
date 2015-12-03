@@ -66,6 +66,8 @@ class ClubsController extends Controller {
             $file->move($new_path, $img_name);
 
             $club->club_logo_url = $img_url;
+        } else {
+            $club->club_logo_url = '/img/aikido.jpg';
         }
         $club->save();
 

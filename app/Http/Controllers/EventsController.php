@@ -50,7 +50,7 @@ class EventsController extends Controller {
                 'event_description' => $request->get('event_description'),
                 'event_note' => $request->get('event_note'),
             )
-        );
+        )
         $event->save();
 
         if ($request->get('event_url') === '') {
@@ -67,6 +67,8 @@ class EventsController extends Controller {
             $file->move($new_path, $img_name);
 
             $event->event_img_url = $img_url;
+        } else {
+            $event->event_img_url = '/img/aikido.jpg';
         }
         $event->save();
 

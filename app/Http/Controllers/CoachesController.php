@@ -60,6 +60,8 @@ class CoachesController extends Controller {
             $file->move($new_path, $img_name);
 
             $coach->coach_img_url = $img_url;
+        } else {
+            $coach->coach_img_url = '/img/aikido.jpg';
         }
         $coach->save();
 

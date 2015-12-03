@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <span class="thumbnail">
-                            <img src="{{ $club->club_logo_url or 'http://dummyimage.com/300x300/000/fff.jpg'}}" alt="{{ $club->club_name }} {{ $club->club_address }}">
+                            <img src="{{ $club->club_logo_url }}" alt="{{ $club->club_name }} {{ $club->club_address }}">
                         </span>
                     </div>
                 </div>
