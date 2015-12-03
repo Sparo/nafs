@@ -23300,6 +23300,7 @@ $(document).ready(function() {
 	 *************************************/
 	$('input[type="file"]').on('change', function(event) {
 		$(".file-indicator").html(event.target.files[0].name);
+		$(".file-indicator").parent().removeClass('btn-default').addClass('btn-success');
 	});
 
 });

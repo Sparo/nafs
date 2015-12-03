@@ -6,78 +6,17 @@
 @section('header_subtitle', 'Treneri nacionalne Aikido federacije Srbije')
 
 @section('main')
-
     <div class="container">
         <div class="row">
-            <p>Ovde sad poredjamo po DAN-ovima i azbučnom redu ljude ili možda po nekom drugom redosledu - to je do vas</p>
-        </div>
-        <div class="row">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="media">
-                  <div class="media-left">
-                    <a href="#">
-                      <img class="media-object" src="{{ asset('img/vesa.jpg') }}" alt="Velibor Vesovic">
+            <div class="list-group">
+            @foreach($coaches as $coach)
+                    <a href="{{ action('CoachesController@show', ['id' => $coach->id]) }}" class="list-group-item">
+                        <h4 class="list-group-item-heading">{{ $coach->coach_first_name }} {{ $coach->coach_last_name }} {{ $coach->coach_level > 0 ? $coach->coach_level . ' DAN' : abs($coach->coach_level) . ' KYU' }}</h4>
+                        <p class="list-group-item-text">
+                            <strong>Klub:</strong> {{ $clubs[$coach->id]->club_name }}
+                        </p>
                     </a>
-                  </div>
-                  <div class="media-body">
-                    <h4 class="media-heading">Velibor Vesović</h4>
-                    <p>
-                        I sad ovde mogu da idu osnovni podaci o treneru:
-                        <br><strong>DAN:</strong>
-                        <br><strong>KLUB:</strong>
-                        <br><strong>Kratka biografija:</strong>
-                        <br>Mislim da bi bilo dobro da se napise nesto kao kratka biografija
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="media">
-                  <div class="media-left">
-                    <a href="#">
-                      <img class="media-object" src="{{ asset('img/vesa.jpg') }}" alt="Velibor Vesovic">
-                    </a>
-                  </div>
-                  <div class="media-body">
-                    <h4 class="media-heading">Velibor Vesović</h4>
-                    <p>
-                        I sad ovde mogu da idu osnovni podaci o treneru:
-                        <br><strong>DAN:</strong>
-                        <br><strong>KLUB:</strong>
-                        <br><strong>Kratka biografija:</strong>
-                        <br>Mislim da bi bilo dobro da se napise nesto kao kratka biografija
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="media">
-                  <div class="media-left">
-                    <a href="#">
-                      <img class="media-object" src="{{ asset('img/vesa.jpg') }}" alt="Velibor Vesovic">
-                    </a>
-                  </div>
-                  <div class="media-body">
-                    <h4 class="media-heading">Velibor Vesović</h4>
-                    <p>
-                        I sad ovde mogu da idu osnovni podaci o treneru:
-                        <br><strong>DAN:</strong>
-                        <br><strong>KLUB:</strong>
-                        <br><strong>Kratka biografija:</strong>
-                        <br>Mislim da bi bilo dobro da se napise nesto kao kratka biografija
-                    </p>
-                  </div>
-                </div>
-              </div>
+            @endforeach
             </div>
         </div>
     </div>

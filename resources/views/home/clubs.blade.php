@@ -1,9 +1,9 @@
 @extends('template')
 
-@section('page_description', 'Ovo strana sa klubovima')
-@section('page_title', 'Klubovi')
-@section('header_title', 'Klubovi')
-@section('header_subtitle', 'Ovde možete pogledati klubove')
+@section('page_description', 'Nacionalna Aikido federacija Srbije - Klubovi')
+@section('page_title', 'Klubovi ')
+@section('header_title', 'Klubovi u Nacionalnoj Aikido federaciji Srbije')
+@section('header_subtitle', 'Ima ukupno '. count($clubs) .' clubova iz cele zemlje')
 
 @section('main')
     <div class="container">

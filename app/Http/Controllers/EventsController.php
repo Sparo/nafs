@@ -62,8 +62,8 @@ class EventsController extends Controller {
             $file = $request->file('event_img_url');
 
             $img_name = $event->id . '.' . $file->getClientOriginalExtension();
-            $img_url = '/img/' . $img_name;
-            $new_path = base_path() . '/public/img/';
+            $img_url = '/img/event/' . $img_name;
+            $new_path = base_path() . '/public/img/event/';
             $file->move($new_path, $img_name);
 
             $event->event_img_url = $img_url;
