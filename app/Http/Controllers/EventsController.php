@@ -70,7 +70,7 @@ class EventsController extends Controller {
         }
         $event->save();
 
-        return redirect('/events/create');
+        return redirect('/');
 
     }
 
@@ -92,7 +92,7 @@ class EventsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        //
+        dd($id);
     }
 
     /**
@@ -103,7 +103,8 @@ class EventsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
+        var_dump($id);
+        dd($request);
     }
 
     /**
@@ -113,6 +114,7 @@ class EventsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        //
+        echo "destroy <br />";
+        dd($id);
     }
 }

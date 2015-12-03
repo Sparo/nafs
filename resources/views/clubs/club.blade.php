@@ -1,9 +1,9 @@
 @extends('template')
 
-@section('page_description', "$event->event_title . ' ' . $event->event_address")
-@section('page_title', "$event->event_title")
-@section('header_title', $event->event_title)
-@section('header_subtitle', $event->event_address . ' ' . date('d. m. Y', strtotime($event->event_start_time)) . ' - ' . date('d. m. Y', strtotime($event->event_end_time)))
+@section('page_description', $club->club_name . ' ' . $club->club_address)
+@section('page_title', $club->club_name)
+@section('header_title', $club->club_name)
+@section('header_subtitle', $club->club_address)
 
 
 @section('main')
@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <span class="thumbnail">
-                            <img src="{{ $event->event_img_url or 'http://dummyimage.com/300x300/000/fff.jpg'}}" alt="{{ $event->event_title }} {{ $event->event_address }}">
+                            <img src="{{ $club->club_logo_url or 'http://dummyimage.com/300x300/000/fff.jpg'}}" alt="{{ $club->club_name }} {{ $club->club_address }}">
                         </span>
                     </div>
                 </div>
@@ -31,15 +31,18 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <h1>
-                            {{ $event->event_title }} <br />
-                            <small>
-                                {{ $event->event_address }} <br />
-                                {{ date('d. m. Y h:i', strtotime($event->event_start_time)) . ' - ' . date('d. m. Y  h:i', strtotime($event->event_end_time)) }}
-                            </small>
+                            {{ $club->club_name }} <br />
                         </h1>
                         <hr />
+                        <address>
+                        	<small>
+	                        	<strong>Adresa:</strong> {{ $club->club_address }} <br />
+	                        	<strong>Email:</strong> <a href="emailto:{{ $club->club_email }}">{{ $club->club_email }}</a> <br />
+	                        	<strong>Telefon:</strong> <a href="tel:{{ $club->club_phone }}">{{ $club->club_phone }}</a> <br />
+                        	</small>
+                        </address>
                         <div class="description">
-                            {!! $event->event_description !!}
+                            {!! $club->club_note !!}
                         </div>
                     </div>
                 </div>
@@ -54,8 +57,8 @@
     <script>
         $(document).ready(function () {
 
-            var lat = '{{ $event->event_lat }}';
-            var lon = '{{ $event->event_lon }}';
+            var lat = '{{ $club->club_lat }}';
+            var lon = '{{ $club->club_lon }}';
 
             var map = new GMaps({
                 div: '#map',
@@ -67,9 +70,9 @@
             map.addMarker({
                 lat: lat,
                 lng: lon,
-                title: '{{ $event->event_title }}',
+                title: '{{ $club->club_name }}',
                 infoWindow: {
-                    content: '<p>{{ $event->event_title }} <br />{{ $event->event_address }}</p>'
+                    content: '<p>{{ $club->club_name }} <br />{{ $club->club_address }}</p>'
                 }
             });
         });

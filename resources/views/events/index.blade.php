@@ -3,27 +3,32 @@
 
 @section('main')
 
-  <!-- Main Content -->
-  <div class="container">
-    <div class="row">
-      @foreach($events as $event)
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="{{ $event->event_img_url or 'http://dummyimage.com/300x300/000/fff.jpg'}}" alt="{{ $event->event_title }} {{ $event->evant_address }}">
-            <div class="caption">
-              <h3>{{ $event->event_title }}</h3>
-              {!! $event->event_description !!}
-              <p>
-                <a href="{{ $event->event_url }}" target="_blank" class="btn btn-link" role="button">Procitaj vise</a>
-              </p>
-
-            </div>
-          </div>
+    <!-- Main Content -->
+    <div class="container">
+        <br />
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <th>#</th>
+                    <th>Naziv</th>
+                    <th>Akcije</th>
+                </thead>
+                <tbody>
+                @foreach($events as $key => $event)
+                    <tr>
+                        <td>{{ $key+1 }}</td>
+                        <td>{{ $event->event_title }}</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="...">
+                                <a href="{{ action('EventsController@edit', ['id' => $event->id]) }}" class="btn btn-warning">Edit</a>
+                                <a href="{{ action('EventsController@destroy', ['id' => $event->id]) }}" class="btn btn-danger">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         </div>
-      @endforeach
-
     </div>
-  </div>
-
 
 @endsection

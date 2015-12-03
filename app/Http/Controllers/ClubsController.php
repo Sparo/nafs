@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
+use App\Aikido_Club;
+use Illuminate\Http\Request;
 
 // use App\Http\Requests;
 // use App\Http\Controllers\Controller;
@@ -23,7 +24,7 @@ class ClubsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        //
+        return view('clubs/create');
     }
 
     /**
@@ -33,7 +34,42 @@ class ClubsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        //
+        unset($request['_token']);
+        // dd($request->all());
+        $club = new Aikido_Club(
+            array(
+                'club_name' => $request->get('club_name'),
+                'club_url' => $request->get('club_url') && strpos($request->get('club_url'), 'http://') === false ? 'http://' . $request->get('club_url') : $request->get('club_url'),
+                'club_fb_url' => $request->get('club_fb_url') && strpos($request->get('club_fb_url'), 'http://') === false ? 'http://' . $request->get('club_fb_url') : $request->get('club_fb_url'),
+                'club_email' => $request->get('club_email'),
+                'club_phone' => $request->get('club_phone'),
+                'club_address' => $request->get('club_address'),
+                'club_lat' => $request->get('club_lat'),
+                'club_lon' => $request->get('club_lon'),
+                'club_note' => $request->get('club_note'),
+                'club_coach_id' => $request->get('club_coach_id'),
+            )
+        );
+        $club->save();
+
+        if ($request->get('club_url') === '') {
+            $club->club_url = 'clubs/' . $club->id;
+        }
+
+        if ($request->hasFile('club_logo_url')) {
+
+            $file = $request->file('club_logo_url');
+
+            $img_name = $club->id . '.' . $file->getClientOriginalExtension();
+            $img_url = '/img/logo/' . $img_name;
+            $new_path = base_path() . '/public/img/logo/';
+            $file->move($new_path, $img_name);
+
+            $club->club_logo_url = $img_url;
+        }
+        $club->save();
+
+        return redirect('/klubovi');
     }
 
     /**
@@ -43,7 +79,8 @@ class ClubsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        //
+        $club = Aikido_Club::find($id);
+        return view('clubs/club', ['club' => $club]);
     }
 
     /**

@@ -11,6 +11,10 @@
 |
  */
 Route::get('/', 'HomeController@index');
+Route::get('/o_nama', 'HomeController@about');
+Route::get('/klubovi', 'HomeController@clubs');
+Route::get('/treneri', 'HomeController@coaches');
+Route::get('/kontakt', 'HomeController@contact');
 
 Route::resource('/about', 'AboutController');
 Route::resource('/contact', 'ContactController');

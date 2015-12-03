@@ -22,16 +22,16 @@
                         <a href="{{ action('HomeController@index') }}">Novosti</a>
                     </li>
                     <li>
-                        <a href="{{ action('AboutController@index') }}">O nama</a>
+                        <a href="{{ action('HomeController@about') }}">O nama</a>
                     </li>
                     <li>
-                        <a href="{{ action('ClubsController@index') }}">Klubovi</a>
+                        <a href="{{ action('HomeController@clubs') }}">Klubovi</a>
                     </li>
                     <li>
-                        <a href="{{ action('CoachesController@index') }}">Treneri</a>
+                        <a href="{{ action('HomeController@coaches') }}">Treneri</a>
                     </li>
                     <li>
-                        <a href="{{ action('ContactController@index') }}">Kontakt</a>
+                        <a href="{{ action('HomeController@contact') }}">Kontakt</a>
                     </li>
                 </ul>
             </div>

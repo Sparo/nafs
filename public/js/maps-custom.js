@@ -17,11 +17,11 @@ GMaps.on('click', map.map, function(event) {
 		title: 'Marker #'
 	});
 
-	$('#event_lat').val(lat);
-	$('#event_lon').val(lng);
+	$('#lat').val(lat);
+	$('#lon').val(lng);
 });
 
-$('#event_address').on('input', function(e) {
+$('#address').on('input', function(e) {
 
 	var self = this;
 
@@ -45,8 +45,8 @@ $('#event_address').on('input', function(e) {
 						lat: latlng.lat(),
 						lng: latlng.lng()
 					});
-					$('#event_lat').val(latlng.lat());
-					$('#event_lon').val(latlng.lng());
+					$('#lat').val(latlng.lat());
+					$('#lon').val(latlng.lng());
 				}
 				clearTimeout(typingTimer);
 			}

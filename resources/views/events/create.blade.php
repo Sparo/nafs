@@ -35,15 +35,15 @@
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="form-group">
-										<input type="text" class="form-control" name="event_address" id="event_address" placeholder="Adresa - ako postoji">
+										<input type="text" class="form-control" name="event_address" id="address" placeholder="Adresa - ako postoji">
 									</div>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-xs-6">
-												<input readonly="readonly" type="text" class="form-control col-xs-6" name="event_lat" id="event_lat" placeholder="lat">
+												<input readonly="readonly" type="text" class="form-control col-xs-6" name="event_lat" id="lat" placeholder="lat">
 											</div>
 											<div class="col-xs-6">
-												<input readonly="readonly" type="text" class="form-control col-xs-6" name="event_lon" id="event_lon" placeholder="lon">
+												<input readonly="readonly" type="text" class="form-control col-xs-6" name="event_lon" id="lon" placeholder="lon">
 											</div>
 										</div>
 									</div>

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Aikido_About;
+use App\Aikido_Club;
+use App\Aikido_Coache;
 use App\Aikido_Event;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller {
     /**
@@ -13,66 +15,25 @@ class HomeController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index(Aikido_Event $events) {
-        return view('home/index', ['events' => $events->all()]);
+        $withOrder = $events->where('event_start_time', '>', date('Y-m-d H:i:m', time()))->orderBy('event_start_time')->get();
+        return view('home/index', ['events' => $withOrder]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create() {
-        //
+    public function clubs(Aikido_Club $clubs) {
+        $withOrder = $clubs->orderBy('club_name')->get();
+        return view('home/clubs', ['clubs' => $withOrder]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request) {
-        //
+    public function coaches(Aikido_Coache $coaches) {
+        return view('home/coaches', ['coaches' => $coaches->all()]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id) {
-        //
+    public function about(Aikido_About $about) {
+        return view('home/about', ['about' => $about->all()]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id) {
-        //
+    public function contact(Aikido_Coache $contact) {
+        return view('home/contact', ['contact' => $contact->all()]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id) {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id) {
-        //
-    }
 }

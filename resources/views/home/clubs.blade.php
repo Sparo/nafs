@@ -15,7 +15,9 @@
                         <div class="caption">
                             <h4>{{ $club->club_name }}</h4>
                             <p>
-                                {{ $club->club_address }}
+                                <strong>Adresa:</strong> {{ $club->club_address or '-' }} <br />
+                                <strong>Email:</strong> {{ $club->club_email or '-' }} <br />
+                                <strong>Telefon:</strong> {{ $club->club_phone or '-' }} <br />
                             </p>
                         </div>
                     </a>
