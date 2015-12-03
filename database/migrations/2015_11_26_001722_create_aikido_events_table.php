@@ -16,7 +16,8 @@ class CreateAikidoEventsTable extends Migration {
             $table->string('event_img_url')->nullable();
             $table->string('event_url')->nullable();
             $table->string('event_address');
-            $table->timestamp('event_time');
+            $table->timestamp('event_start_time');
+            $table->timestamp('event_end_time');
             $table->string('event_lat')->nullable();
             $table->string('event_lon')->nullable();
             $table->text('event_description')->nullable();

@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
  */
+Route::get('/', 'HomeController@index');
 
 Route::resource('/about', 'AboutController');
 Route::resource('/contact', 'ContactController');

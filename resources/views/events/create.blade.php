@@ -24,12 +24,9 @@
 							<div class="row">
 								<div class="col-sm-6">
 									<span class="btn btn-default btn-file">
-										Upload Image for event
+										<span class="file-indicator">Upload Image for event</span>
 										<input type="file" name="event_img_url">
 									</span>
-								</div>
-								<div class="col-sm-6">
-									<img src="http://dummyimage.com/340x240/422d42/ffffff.jpg" alt="DummyImage" class="img-thumbnail">
 								</div>
 							</div>
 						</div>
@@ -51,12 +48,24 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<div class='input-group date' id="event_time">
-											<input type="text" class="form-control" name="event_time" placeholder="Time">
-											<span class="input-group-addon">
-												<span class="glyphicon glyphicon-calendar"></span>
-											</span>
-										</div>
+											<div class="row">
+												<div class="col-xs-6">
+													<div class='input-group date' id="event_start_time">
+														<input type="text" class="form-control" name="event_start_time" placeholder="Od">
+														<span class="input-group-addon">
+															<span class="glyphicon glyphicon-calendar"></span>
+														</span>
+													</div>
+												</div>
+												<div class="col-xs-6">
+													<div class='input-group date' id="event_end_time">
+														<input type="text" class="form-control" name="event_end_time" placeholder="Do">
+														<span class="input-group-addon">
+															<span class="glyphicon glyphicon-calendar"></span>
+														</span>
+													</div>
+												</div>
+											</div>
 									</div>
 								</div>
 								<div class="col-sm-6">
@@ -82,4 +91,14 @@
 @section('additional_scripts')
 	<script src="/js/maps-custom.js"></script>
 	<script src="/js/summernote.js"></script>
+	<script>
+		$(document).ready(function() {
+			/*************************************
+			 * Sumernote
+			 *************************************/
+			$('#event_description, #event_note').summernote({
+				height: 300,
+			});
+		});
+	</script>
 @endsection

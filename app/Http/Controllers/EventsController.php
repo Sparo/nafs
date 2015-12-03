@@ -43,7 +43,8 @@ class EventsController extends Controller {
                 'event_title' => $request->get('event_title'),
                 'event_url' => $request->get('event_url') && strpos($request->get('event_url'), 'http://') === false ? 'http://' . $request->get('event_url') : $request->get('event_url'),
                 'event_address' => $request->get('event_address'),
-                'event_time' => $request->get('event_time'),
+                'event_start_time' => $request->get('event_start_time'),
+                'event_end_time' => $request->get('event_end_time'),
                 'event_lat' => $request->get('event_lat'),
                 'event_lon' => $request->get('event_lon'),
                 'event_description' => $request->get('event_description'),
@@ -80,7 +81,8 @@ class EventsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        //
+        $event = Aikido_Event::find($id);
+        return view('events/event', ['event' => $event]);
     }
 
     /**

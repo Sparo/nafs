@@ -23277,13 +23277,29 @@ google.maps = google.maps || {};
 }));
 
 $(document).ready(function() {
-	console.log("Test");
 
-	$('#event_time').datetimepicker({
+	/*************************************
+	 * Datepicker
+	 *************************************/
+	$('#event_start_time').datetimepicker({
 		format: 'YYYY-MM-DD HH:mm:ss'
 	});
-
-	$('#event_description').summernote({
-		height: 300,
+	$('#event_end_time').datetimepicker({
+		format: 'YYYY-MM-DD HH:mm:ss',
+		useCurrent: false
 	});
+	$("#event_start_time").on("dp.change", function(e) {
+		$('#event_end_time').data("DateTimePicker").minDate(e.date);
+	});
+	$("#event_end_time").on("dp.change", function(e) {
+		$('#event_start_time').data("DateTimePicker").maxDate(e.date);
+	});
+
+	/*************************************
+	 * File input feeadback
+	 *************************************/
+	$('input[type="file"]').on('change', function(event) {
+		$(".file-indicator").html(event.target.files[0].name);
+	});
+
 });
