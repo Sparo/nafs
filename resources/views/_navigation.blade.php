@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{action('AboutController@index') }}">
+                <a class="navbar-brand" href="{{action('HomeController@index') }}">
                     <img src="{{ asset('img/LogoSerb_100x100.png') }}" alt=":)">
                 </a>
             </div>

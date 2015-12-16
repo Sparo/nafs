@@ -2,8 +2,8 @@
 
 @section('page_description', 'Nacionalna Aikido federacija Srbije - Klubovi')
 @section('page_title', 'Klubovi ')
-@section('header_title', 'Klubovi u Nacionalnoj Aikido federaciji Srbije')
-@section('header_subtitle', 'Ima ukupno '. count($clubs) .' clubova iz cele zemlje')
+@section('header_title', 'Pregled klubova')
+@section('header_subtitle', count($clubs) .' klubova iz cele zemlje')
 
 @section('main')
     <div class="container">
@@ -11,14 +11,14 @@
             @foreach($clubs as $club)
                 <div class="col-sm-6 col-md-4">
                     <a href="
-                    @if(strlen($club->club_url) > 0 && strpos($club->club_url, 'clubs/') === false)
+                    @if(strpos($club->club_url, 'http') !== false)
                         {{ $club->club_url }}
-                    @elseif(strpos($club->club_url, 'clubs/') !== false && strlen($club->club_fb_url) < 3)
-                        {{ $club->club_url }}
-                    @elseif(strlen($club->club_fb_url) > 0)
+                    @elseif(strpos($club->club_url, 'http') === false && strpos($club->club_fb_url, 'http') !== false)
                         {{ $club->club_fb_url }}
+                    @elseif(strpos($club->club_fb_url, 'http') === false)
+                        {{ $club->club_url }}
                     @else
-                        -
+                        #
                     @endif" target="_blank" class="thumbnail" role="button" title="{{ $club->club_name }}">
                         <img style="height:300px" src="{{ $club->club_logo_url }}" alt="{{ $club->club_name }} logo">
                         <div class="caption">

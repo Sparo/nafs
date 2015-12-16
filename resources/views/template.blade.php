@@ -8,6 +8,7 @@
 		@yield('main')
 
 		@include('_footer')
+		@include('_tracking_scripts')
 		@include('_scripts')
 	</body>
 </html>

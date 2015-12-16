@@ -33,8 +33,8 @@
                             @if(count($clubs) > 0)
                                 @foreach ($clubs as $key => $club)
                                     @if($club->id === $coach->coach_club_id)
-                                        <a href="{{ $club->club_url }}" title="{{ $club->club_name }}" target="_blank">
-                                            {{ $club->club_name }}
+                                        <a href="@if(strpos($club->club_url, 'http') !== false){{ $club->club_url }}@else /{{ $club->club_url }}@endif" title="Aikido klub {{ $club->club_name }}" target="_blank">
+                                            Aikido klub {{ $club->club_name }}
                                         </a>
                                     @endif
                                 @endforeach
