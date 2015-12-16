@@ -1,27 +1,46 @@
-@extends('template')
+@extends('edit_template')
 
-@section('page_description', 'Ovo strana sa klubovima')
-@section('page_title', 'Klubovi')
-@section('header_title', 'Klubovi')
-@section('header_subtitle', 'Ovde možete pogledati klubove')
 
 @section('main')
+
+    <!-- Main Content -->
     <div class="container">
+        <br />
         <div class="row">
-            @foreach($clubs as $club)
-                <div class="col-sm-6 col-md-4">
-                    <a href="{{ $club->club_url }}" target="_blank" class="thumbnail" role="button" title="{{ $club->club_name }}">
-                        <img src="{{ $club->club_logo_url }}" alt="{{ $club->club_name }} logo">
-                        <div class="caption">
-                            <h4>{{ $club->club_name }}</h4>
-                            <p>
-                                {{ $club->club_address }}
-                            </p>
-                        </div>
-                    </a>
-                </div>
-            @endforeach
+            <a href="{{ action('ClubsController@create') }}" class="btn btn-success">
+                Dodaj <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="row">
+            <table class="table table-hover" id="data_table">
+                <thead>
+                    <th>#</th>
+                    <th>Naziv</th>
+                    <th>Akcije</th>
+                </thead>
+                <tbody>
+                @foreach($clubs as $key => $club)
+                    <tr>
+                        <td>{{ $key+1 }}</td>
+                        <td>{{ $club->club_name }}</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="...">
+                                <a href="{{ action('ClubsController@edit', ['id' => $club->id]) }}" class="btn btn-warning">Edit</a>
+                                <a href="{{ action('ClubsController@destroy', ['id' => $club->id]) }}" class="btn btn-danger">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 
+@endsection
+
+
+@section('additional_scripts')
+    <script src="{{ asset('js/underscore.js') }}"></script>
+    <script src="{{ asset('js/backbone.js') }}"></script>
+    <script src="{{ asset('js/singlepage.js') }}"></script>
 @endsection

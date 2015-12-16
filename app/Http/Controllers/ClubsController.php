@@ -15,8 +15,8 @@ class ClubsController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        return view('clubs/index');
+    public function index(Aikido_Club $clubs) {
+        return view('clubs/index', ['clubs' => $clubs->all()]);
     }
 
     /**
@@ -55,7 +55,7 @@ class ClubsController extends Controller {
         $club->save();
 
         if ($request->get('club_url') === '') {
-            $club->club_url = 'clubs/' . $club->id;
+            $club->club_url = 'klubovi/' . $club->id;
         }
 
         if ($request->hasFile('club_logo_url')) {

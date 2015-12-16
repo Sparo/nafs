@@ -29,7 +29,17 @@
                         <hr />
                         <strong>Zvanje:</strong> {{ $coach->coach_title }} <br />
                         <strong>Pojas:</strong> {{($coach->coach_level > 0 ? $coach->coach_level . ' DAN' : abs($coach->coach_level) . ' KYU') . ' HOMBU DOJO ' }} <br />
-                        <strong>Klub:</strong> {{ $club[$coach->id]->club_name }} <br /><br />
+                        <strong>Klub:</strong>
+                            @if(count($clubs) > 0)
+                                @foreach ($clubs as $key => $club)
+                                    @if($club->id === $coach->coach_club_id)
+                                        <a href="{{ $club->club_url }}" title="{{ $club->club_name }}" target="_blank">
+                                            {{ $club->club_name }}
+                                        </a>
+                                    @endif
+                                @endforeach
+                            @endif
+                        <br /><br />
                         <div class="description">
                             {!! $coach->coach_cv !!}
                         </div>

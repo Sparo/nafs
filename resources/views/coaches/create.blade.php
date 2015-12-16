@@ -38,7 +38,7 @@
             </div>
             <div class="form-group">
               <select class="form-control" name="coach_level">
-                <option value="">Izaberite DAN trenera</option>
+                <option value="0">-- Izaberite DAN trenera --</option>
                 <option value="9">9 DAN</option>
                 <option value="8">8 DAN</option>
                 <option value="7">7 DAN</option>
@@ -56,17 +56,17 @@
             </div>
             <div class="form-group">
               <select class="form-control" name="coach_club_id">
-                <option value=""><strong>Izaberite Klub</strong></option>
+                <option value="0">-- Izaberite Klub --</option>
                 @foreach($clubs as $club)
                   <option value="{{ $club->id }}">{{ $club->club_name }}</option>
                 @endforeach
               </select>
             </div>
             <div class="form-group">
-              <textarea name="coach_cv" class="form-control" id="coach_cv" rows="10" placeholder="Biografija trenera" style="width:100%">BIografija trenera</textarea>
+              <textarea name="coach_cv" class="form-control" id="coach_cv" rows="10" placeholder="Biografija trenera" style="width:100%"></textarea>
             </div>
             <div class="form-group">
-              <textarea name="coach_note" class="form-control" id="coach_note" rows="10"  placeholder="Napomena ako je potrebno" style="width:100%">Napomena ukoliko je potrebno</textarea>
+              <textarea name="coach_note" class="form-control" id="coach_note" rows="10"  placeholder="Napomena ako je potrebno" style="width:100%"></textarea>
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           {!! Form::close() !!}

@@ -1,85 +1,46 @@
-@extends('template')
+@extends('edit_template')
 
-@section('page_description', 'Ovde možete videti trenere')
-@section('page_title', 'Treneri')
-@section('header_title', 'Treneri')
-@section('header_subtitle', 'Treneri nacionalne Aikido federacije Srbije')
 
 @section('main')
 
+    <!-- Main Content -->
     <div class="container">
+        <br />
         <div class="row">
-            <p>Ovde sad poredjamo po DAN-ovima i azbučnom redu ljude ili možda po nekom drugom redosledu - to je do vas</p>
+            <a href="{{ action('CoachesController@create') }}" class="btn btn-success">
+                Dodaj <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </a>
         </div>
         <div class="row">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="media">
-                  <div class="media-left">
-                    <a href="#">
-                      <img class="media-object" src="{{ asset('img/vesa.jpg') }}" alt="Velibor Vesovic">
-                    </a>
-                  </div>
-                  <div class="media-body">
-                    <h4 class="media-heading">Velibor Vesović</h4>
-                    <p>
-                        I sad ovde mogu da idu osnovni podaci o treneru:
-                        <br><strong>DAN:</strong>
-                        <br><strong>KLUB:</strong>
-                        <br><strong>Kratka biografija:</strong>
-                        <br>Mislim da bi bilo dobro da se napise nesto kao kratka biografija
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="media">
-                  <div class="media-left">
-                    <a href="#">
-                      <img class="media-object" src="{{ asset('img/vesa.jpg') }}" alt="Velibor Vesovic">
-                    </a>
-                  </div>
-                  <div class="media-body">
-                    <h4 class="media-heading">Velibor Vesović</h4>
-                    <p>
-                        I sad ovde mogu da idu osnovni podaci o treneru:
-                        <br><strong>DAN:</strong>
-                        <br><strong>KLUB:</strong>
-                        <br><strong>Kratka biografija:</strong>
-                        <br>Mislim da bi bilo dobro da se napise nesto kao kratka biografija
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="media">
-                  <div class="media-left">
-                    <a href="#">
-                      <img class="media-object" src="{{ asset('img/vesa.jpg') }}" alt="Velibor Vesovic">
-                    </a>
-                  </div>
-                  <div class="media-body">
-                    <h4 class="media-heading">Velibor Vesović</h4>
-                    <p>
-                        I sad ovde mogu da idu osnovni podaci o treneru:
-                        <br><strong>DAN:</strong>
-                        <br><strong>KLUB:</strong>
-                        <br><strong>Kratka biografija:</strong>
-                        <br>Mislim da bi bilo dobro da se napise nesto kao kratka biografija
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <table class="table table-hover" id="data_table">
+                <thead>
+                    <th>#</th>
+                    <th>Naziv</th>
+                    <th>Akcije</th>
+                </thead>
+                <tbody>
+                @foreach($coaches as $key => $coach)
+                    <tr>
+                        <td>{{ $key+1 }}</td>
+                        <td>{{ $coach->coach_first_name }} {{ $coach->coach_last_name }}</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="...">
+                                <a href="{{ action('CoachesController@edit', ['id' => $coach->id]) }}" class="btn btn-warning">Edit</a>
+                                <a href="{{ action('CoachesController@destroy', ['id' => $coach->id]) }}" class="btn btn-danger">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 
+@endsection
+
+
+@section('additional_scripts')
+    <script src="{{ asset('js/underscore.js') }}"></script>
+    <script src="{{ asset('js/backbone.js') }}"></script>
+    <script src="{{ asset('js/singlepage.js') }}"></script>
 @endsection

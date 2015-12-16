@@ -28,6 +28,22 @@
 										<input type="file" name="event_img_url">
 									</span>
 								</div>
+								<div class="col-sm-6">
+									<div class="dropdown">
+										<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+											Slike sa Prethodnih seminara
+											<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+											@foreach($events as $event)
+												<li>
+													<a href="#"><img style="width:50px;height:50px;" src="{{ $event->event_img_url }}" alt="{{ $event->event_title }}">{{ $event->event_title }}</a>
+												</li>
+											@endforeach
+										</ul>
+									</div>
+								</div>
+
 							</div>
 						</div>
 

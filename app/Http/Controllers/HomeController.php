@@ -25,7 +25,7 @@ class HomeController extends Controller {
     }
 
     public function coaches(Aikido_Coache $coaches) {
-        $withOrder = $coaches->orderBy('coach_level', 'desc')->orderBy('coach_first_name')->get();
+        $withOrder = $coaches->orderBy('coach_level', 'desc')->orderBy('coach_last_name', 'desc')->get();
         $clubs = Aikido_Club::all();
         return view('home/coaches', ['coaches' => $withOrder, 'clubs' => $clubs]);
     }
@@ -36,6 +36,10 @@ class HomeController extends Controller {
 
     public function contact(Aikido_Coache $contact) {
         return view('home/contact', ['contact' => $contact->all()]);
+    }
+
+    public function dashboard() {
+        return view('home/dashboard');
     }
 
 }

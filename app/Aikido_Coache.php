@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Aikido_Coache extends Model {
 
@@ -13,4 +14,6 @@ class Aikido_Coache extends Model {
     public function aikido_clubs() {
         return $this->belongsTo('Aikido_Club', 'coach_club_id', 'id');
     }
+
+    protected $dates = ['deleted_at'];
 }

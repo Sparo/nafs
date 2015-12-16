@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Aikido_Event;
 use Illuminate\Http\Request;
+use Request as Req;
 use Storage;
 
 // use App\Http\Requests;
@@ -16,6 +17,11 @@ class EventsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index(Aikido_Event $events) {
+
+        if (Req::ajax()) {
+            return Aikido_Event::all();
+        }
+
         return view('events/index', ['events' => $events->all()]);
     }
 
@@ -25,7 +31,7 @@ class EventsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('events/create');
+        return view('events/create', ['events' => Aikido_Event::all()]);
     }
 
     /**
@@ -50,11 +56,11 @@ class EventsController extends Controller {
                 'event_description' => $request->get('event_description'),
                 'event_note' => $request->get('event_note'),
             )
-        )
+        );
         $event->save();
 
         if ($request->get('event_url') === '') {
-            $event->event_url = 'events/' . $event->id;
+            $event->event_url = 'novosti/' . $event->id;
         }
 
         if ($request->hasFile('event_img_url')) {
@@ -116,7 +122,6 @@ class EventsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        echo "destroy <br />";
-        dd($id);
+        return Aikido_Event::delete($id);
     }
 }

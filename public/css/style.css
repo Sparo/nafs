@@ -9223,6 +9223,30 @@ body {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+.intro-header {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .intro-header {
+    display: block;
+  }
+}
+
+.navbar-header {
+  min-height: 125px;
+}
+
+.container {
+  margin-top: 130px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    margin-top: initial;
+  }
+}
+
 #bs-example-navbar-collapse-1 > ul > li > a {
   color: #666 !important;
 }
@@ -9242,6 +9266,11 @@ body {
 
 #page-header .page-heading hr {
   border-color: #666;
+}
+
+.col-sm-6 a:hover,
+.col-sm-4 a:hover {
+  text-decoration: none;
 }
 
 @font-face {

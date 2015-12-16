@@ -13,6 +13,7 @@ class CreateAikidoEventsTable extends Migration {
         Schema::create('aikido_events', function (Blueprint $table) {
             $table->increments('id');
             $table->string('event_title');
+            $table->string('event_type');
             $table->string('event_img_url')->nullable();
             $table->string('event_url')->nullable();
             $table->string('event_address');

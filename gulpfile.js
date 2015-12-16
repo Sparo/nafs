@@ -29,7 +29,6 @@ elixir(function(mix) {
 		'moment.js',
 		'bootstrap.js',
 		'bootstrap-datetimepicker.js',
-		'gmaps-api.js',
 		'gmaps.js',
 		"app.js"
 	], 'public/js/app.js');

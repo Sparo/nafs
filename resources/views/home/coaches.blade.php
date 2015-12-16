@@ -8,17 +8,28 @@
 @section('main')
     <div class="container">
         <div class="row">
-            <div class="list-group">
             @foreach($coaches as $coach)
-                    <a href="{{ action('CoachesController@show', ['id' => $coach->id]) }}" class="list-group-item">
-                        <h4 class="list-group-item-heading">{{ $coach->coach_first_name }} {{ $coach->coach_last_name }} {{ $coach->coach_level > 0 ? $coach->coach_level . ' DAN' : abs($coach->coach_level) . ' KYU' }}</h4>
-                        <p class="list-group-item-text">
-                            <strong>Klub:</strong> {{ $clubs[$coach->id]->club_name }}
-                        </p>
+                <div class="col-sm-6 col-md-4">
+                    <a style="height:130px" href="/treneri/{{ $coach->id }}" title="{{ $coach->coach_first_name }} {{ $coach->coach_last_name }}" class="thumbnail">
+                        <div class="caption">
+                            <h3>
+                                {{ $coach->coach_last_name }}, {{ $coach->coach_first_name }} {{ $coach->coach_level > 0 ? $coach->coach_level . ' DAN' : abs($coach->coach_level) . ' KYU' }} <br />
+                                <small>
+                                    {{ $coach->coach_title }}
+                                    @if(count($clubs) > 0)
+                                        @foreach ($clubs as $key => $club)
+                                            @if($club->id === $coach->coach_club_id)
+                                                {{ $club->club_name }}
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                </small>
+                            </h3>
+                        </div>
                     </a>
+                </div>
             @endforeach
             </div>
         </div>
-    </div>
 
 @endsection

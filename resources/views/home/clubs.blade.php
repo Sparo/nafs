@@ -10,14 +10,28 @@
         <div class="row">
             @foreach($clubs as $club)
                 <div class="col-sm-6 col-md-4">
-                    <a href="{{ $club->club_url }}" target="_blank" class="thumbnail" role="button" title="{{ $club->club_name }}">
-                        <img src="{{ $club->club_logo_url }}" alt="{{ $club->club_name }} logo">
+                    <a href="
+                    @if(strlen($club->club_url) > 0 && strpos($club->club_url, 'clubs/') === false)
+                        {{ $club->club_url }}
+                    @elseif(strpos($club->club_url, 'clubs/') !== false && strlen($club->club_fb_url) < 3)
+                        {{ $club->club_url }}
+                    @elseif(strlen($club->club_fb_url) > 0)
+                        {{ $club->club_fb_url }}
+                    @else
+                        -
+                    @endif" target="_blank" class="thumbnail" role="button" title="{{ $club->club_name }}">
+                        <img style="height:300px" src="{{ $club->club_logo_url }}" alt="{{ $club->club_name }} logo">
                         <div class="caption">
                             <h4>{{ $club->club_name }}</h4>
                             <p>
-                                <strong>Adresa:</strong> {{ $club->club_address or '-' }} <br />
-                                <strong>Email:</strong> {{ $club->club_email or '-' }} <br />
-                                <strong>Telefon:</strong> {{ $club->club_phone or '-' }} <br />
+                                <strong>Web sajt:</strong>
+                                    @if($club->club_url && strlen($club->club_url) > 0 && strpos($club->club_url, 'clubs/') === false){{ $club->club_url }}@else-@endif<br />
+                                <strong>Adresa:</strong>
+                                    @if($club->club_address && strlen($club->club_address) > 0){{ $club->club_address }}@else-@endif<br />
+                                <strong>Telefon:</strong>
+                                    @if($club->club_phone && strlen($club->club_phone) > 0){{ $club->club_phone }}@else-@endif<br />
+                                <strong>Email:</strong>
+                                    @if($club->club_email && strlen($club->club_email) > 0){{ $club->club_email }}@else-@endif<br />
                             </p>
                         </div>
                     </a>

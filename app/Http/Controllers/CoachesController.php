@@ -14,8 +14,8 @@ class CoachesController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        return view('coaches/index');
+    public function index(Aikido_Coache $coaches) {
+        return view('coaches/index', ['coaches' => $coaches->all()]);
     }
 
     /**
@@ -24,8 +24,8 @@ class CoachesController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create(Aikido_Club $clubs) {
-
-        return view('coaches/create', ['clubs' => $clubs->all()]);
+        $coaches = Aikido_Coache::all();
+        return view('coaches/create', ['clubs' => $clubs->all(), 'coaches' => $coaches]);
     }
 
     /**
@@ -76,8 +76,8 @@ class CoachesController extends Controller {
      */
     public function show($id) {
         $coach = Aikido_Coache::find($id);
-        $club = Aikido_Club::all();
-        return view('coaches/coach', ['club' => $club, 'coach' => $coach]);
+        $clubs = Aikido_Club::all();
+        return view('coaches/coach', ['clubs' => $clubs, 'coach' => $coach]);
     }
 
     /**
