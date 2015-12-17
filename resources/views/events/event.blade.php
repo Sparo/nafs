@@ -1,8 +1,8 @@
 @extends('template')
 
-@section('page_description', "$event->event_title . ' ' . $event->event_address")
-@section('page_title', "$event->event_title")
-@section('header_title', $event->event_title)
+@section('page_description', $event->event_type . ' ' . $event->event_address . ' ' . date('d. m. Y', strtotime($event->event_start_time)) . ' - ' . date('d. m. Y', strtotime($event->event_end_time)))
+@section('page_title', $event->event_title . ' ' . $event->event_address . ' ' . date('d. m. Y', strtotime($event->event_start_time)) . ' - ' . date('d. m. Y', strtotime($event->event_end_time)))
+@section('header_title', $event->event_type)
 @section('header_subtitle', $event->event_address . ' ' . date('d. m. Y', strtotime($event->event_start_time)) . ' - ' . date('d. m. Y', strtotime($event->event_end_time)))
 
 

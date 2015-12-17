@@ -1,9 +1,9 @@
 @extends('template')
 
-@section('page_description', 'Ovde možete videti trenere')
-@section('page_title', 'Treneri')
-@section('header_title', 'Treneri')
-@section('header_subtitle', 'Treneri nacionalne Aikido federacije Srbije')
+@section('page_description', 'Spisak trenera u Nacionalnoj Aikido federaciji Srbije')
+@section('page_title', 'Spisak trenera')
+@section('header_title', 'Lista trenera')
+@section('header_subtitle', 'Treneri nacionalne Aikido federacije Srbije (Ukupno: '. count($coaches) . ')')
 
 @section('main')
     <div class="container">

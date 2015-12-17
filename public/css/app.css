@@ -43,6 +43,10 @@
   border-color: #666;
 }
 
+#page-header .page-heading h1 {
+  font-size: 70px;
+}
+
 .col-sm-6 a:hover,
 .col-sm-4 a:hover {
   text-decoration: none;

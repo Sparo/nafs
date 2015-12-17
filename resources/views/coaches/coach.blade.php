@@ -1,7 +1,7 @@
 @extends('template')
 
-@section('page_description', $coach->coach_first_name . ' ' . $coach->coach_last_name . ' Aikido trener opis')
-@section('page_title', $coach->coach_first_name . ' ' . $coach->coach_last_name . ' Aikido')
+@section('page_description', 'Više detalja o treneru: ' . $coach->coach_first_name . ' ' . $coach->coach_last_name)
+@section('page_title', $coach->coach_first_name . ' ' . $coach->coach_last_name . ' Aikido trener')
 @section('header_title', $coach->coach_first_name . ' ' . $coach->coach_last_name)
 @section('header_subtitle', ($coach->coach_level > 0 ? $coach->coach_level . ' DAN' : abs($coach->coach_level) . ' KYU') . ' HOMBU DOJO ')
 

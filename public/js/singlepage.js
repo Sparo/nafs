@@ -1,26 +1,28 @@
 var RowView = Backbone.View.extend({
 	initialize: function(options) {
-		console.log(this);
+		// this.el = options.el;
 		this.model = options.model;
+
+		console.log(this);
 	},
 	events: {
 		'click a.j-delete': 'deleteThisElement'
 	},
 
-	deleteThisElement: function(e) {
-		console.log($(this.el));
-		return;
+	deleteThisElement: function(event) {
+		event.preventDefault();
+
+		var self = this;
+
 		this.model.destroy({
 			headers: {
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			},
 			success: function(data) {
 				console.log(data);
-				this.$el.css('border-color', 'red');
+				self.$el.css('border-color', 'red').css('color', 'red').children().last().html('Deleted');
 			}
 		});
-		console.log(e);
-		console.log(this.model);
 	}
 });
 
@@ -36,9 +38,10 @@ var EventCollection = Backbone.Collection.extend({
 	initialize: function() {
 		this.fetch({
 			success: function(data, t) {
+				console.log('Data loaded...');
 				_.each(data.models, function(model, index) {
 					var rowView = new RowView({
-						el: '#row' + model.get('id'),
+						el: '#row' + (index + 1),
 						model: model
 					})
 				});
@@ -51,7 +54,6 @@ var EventCollection = Backbone.Collection.extend({
 	}
 });
 
-console.log(ViewsArray);
 /**************************
  * Define views
  **************************/

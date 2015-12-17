@@ -1,9 +1,9 @@
 @extends('template')
 
-@section('page_description', 'Ovo je strana sa vestima')
-@section('page_title', 'Dogadjaji')
-@section('header_title', 'Dogadjaji')
-@section('header_subtitle', 'Pratite seminare i novosti u aikido svetu')
+@section('page_description', 'Pratite dogadjaje i nastupajuće seminare')
+@section('page_title', 'Prikaz dogadjaja i seminara')
+@section('header_title', 'Dogadjaji i seminari')
+@section('header_subtitle', 'Pratite seminare i novosti u Srbiji i aikido svetu')
 
 
 @section('main')

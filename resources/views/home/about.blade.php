@@ -1,9 +1,9 @@
 @extends('template')
 
-@section('page_description', 'Ovo je neki opis strane')
-@section('page_title', 'O nama')
+@section('page_description', 'Opis i ideja Nacionalne Aikido federacije Srbije')
+@section('page_title', 'Nacionalna Aikido federacija Srbije - O nama')
 @section('header_title', 'O nama')
-@section('header_subtitle', 'Šta je Nacionalna Aikido federacija Srbije')
+@section('header_subtitle', 'Šta je Nacionalna Aikido federacija Srbije, ideja rada!')
 
 @section('main')
 

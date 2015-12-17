@@ -34,8 +34,12 @@ class HomeController extends Controller {
         return view('home/about', ['about' => $about->all()]);
     }
 
-    public function contact(Aikido_Coache $contact) {
-        return view('home/contact', ['contact' => $contact->all()]);
+    public function contact() {
+        return view('home/contact');
+    }
+
+    public function contactClubs(Aikido_Club $clubs) {
+        return $clubs->all();
     }
 
     public function dashboard() {

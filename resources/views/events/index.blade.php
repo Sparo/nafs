@@ -26,8 +26,8 @@
                         <td>{{ $event->event_title }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="...">
-                                <a href="{{ action('EventsController@edit', ['id' => $event->id]) }}" class="btn btn-warning j-edit">Edit</a>
-                                <a href="#{{ action('EventsController@destroy', ['id' => $event->id]) }}" class="btn btn-danger j-delete">Delete</a>
+                                <a href="#edit" id="edit" class="btn btn-warning j-edit">Edit</a>
+                                <a href="#delete" id="delete" class="btn btn-danger j-delete">Delete</a>
                             </div>
                         </td>
                     </tr>

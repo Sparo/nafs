@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Aikido_Club extends Model {
+	use SoftDeletes;
 
     protected $table = 'aikido_clubs';
 

@@ -47,6 +47,7 @@ class EventsController extends Controller {
         $event = new Aikido_Event(
             array(
                 'event_title' => $request->get('event_title'),
+                'event_type' => $request->get('event_type'),
                 'event_url' => $request->get('event_url') && strpos($request->get('event_url'), 'http://') === false ? 'http://' . $request->get('event_url') : $request->get('event_url'),
                 'event_address' => $request->get('event_address'),
                 'event_start_time' => $request->get('event_start_time'),
@@ -122,6 +123,6 @@ class EventsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        return Aikido_Event::delete($id);
+        return Aikido_Event::destroy($id);
     }
 }

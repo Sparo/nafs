@@ -15,7 +15,10 @@
 					{!! Form::open(array('action' => 'EventsController@store', 'files' => true)) !!}
 
 						<div class="form-group">
-							<input type="text" class="form-control" id="event_title" name="event_title" placeholder="Event Title">
+							<input type="text" class="form-control" id="event_title" name="event_title" placeholder="Naziv dogadjaja">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="event_type" name="event_type" placeholder="Tip dogadjaja (vikend seminar, yudansha seminar) ...">
 						</div>
 						<div class="form-group">
 							<input type="text" class="form-control" name="event_url" id="event_url" placeholder="Url za dogadjaj, FB stranica, ili neki drugi url (ukoliko ostane prazno bice generisan url na ovom sajtu)">

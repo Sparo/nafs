@@ -1,8 +1,8 @@
 @extends('template')
 
-@section('page_description', $club->club_name . ' ' . $club->club_address)
-@section('page_title', $club->club_name)
-@section('header_title', $club->club_name)
+@section('page_description', 'Aikido klub ' . $club->club_name . ', ' . $club->club_address)
+@section('page_title', 'Aikido klub ' . $club->club_name . ', ' . $club->club_address . ' ' . $club->club_phone . ' ' . $club->club_email)
+@section('header_title', 'Aikido klub ' . $club->club_name)
 @section('header_subtitle', $club->club_address)
 
 
@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <h1>
-                            {{ $club->club_name }} <br />
+                            Aikido klub {{ $club->club_name }} <br />
                         </h1>
                         <hr />
                         <address>
