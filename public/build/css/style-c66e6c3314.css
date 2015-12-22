@@ -9273,7 +9273,9 @@ body {
 }
 
 .col-sm-6 a:hover,
-.col-sm-4 a:hover {
+.col-sm-6 a:focus,
+.col-sm-4 a:hover,
+.col-sm-4 a:focus {
   text-decoration: none;
 }
 

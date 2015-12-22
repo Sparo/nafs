@@ -19,7 +19,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="{{ action('HomeController@index') }}">Novosti</a>
+                        <a href="{{ action('HomeController@index') }}">Događaji</a>
                     </li>
                     <li>
                         <a href="{{ action('HomeController@about') }}">O nama</a>

@@ -3,7 +3,7 @@
 @section('page_description', 'Opis i ideja Nacionalne Aikido federacije Srbije')
 @section('page_title', 'Nacionalna Aikido federacija Srbije - O nama')
 @section('header_title', 'O nama')
-@section('header_subtitle', 'Šta je Nacionalna Aikido federacija Srbije, ideja rada!')
+@section('header_subtitle', 'Šta je Nacionalna Aikido federacija Srbije? Koja je ideja?')
 
 @section('main')
 
@@ -25,10 +25,10 @@
                     Naši zadaci su:
 
                     <ul>
-                        <li>Saradnja sa <em>International aikido federation (IAF)</em>, Japanskom ambasadom u Srbiji i <em>Japan International Cooperation Agency (JICA).</em></li>
-                        <li>Saradnja sa Sportskim savezom Srbije, Republičkim zavodom za sport i Fakultetom za sport i fizičko vaspitanje.</li>
-                        <li>Organizacija seminara sa najboljim učiteljima koji bi držali seminare u Srbiji</li>
-                        <li>Školuje i licenciraju aikido trenera.</li>
+                        <li>Saradnja sa <em>International aikido federation (IAF)</em>, Japanskom ambasadom u Srbiji i <em>Japan International Cooperation Agency (JICA)</em></li>
+                        <li>Saradnja sa Sportskim savezom Srbije, Republičkim zavodom za sport i Fakultetom za sport i fizičko vaspitanje</li>
+                        <li>Organizovanje seminara sa najboljim učiteljima koji bi držali seminare u Srbiji</li>
+                        <li>Školovanje i licenciranje aikido trenera</li>
                     </ul>
                 </p>
                 <p>
@@ -40,6 +40,30 @@
                 <p>
                     NADAMO SE DA ĆETE PREPOZNATI NAŠU DOBRU IDEJU I PRIKLJUČITI SE DA ZAJEDNO VEŽBAMO AIKIDO
                 </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4">
+                        <strong>Statut.pdf</strong>
+                        <a href="/files/Statut.pdf" target="_blank" class="thumbnail">
+                            <img src="/files/Statut.png" alt="Statut nacionalne Aikido federacije Srbije">
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <strong>Pravilnik.pdf</strong>
+                        <a href="/files/Pravilnik.pdf" target="_blank" class="thumbnail">
+                            <img src="/files/Pravilnik.png" alt="Pravilnik nacionalne Aikido federacije Srbije">
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <strong>Pristupnica.doc</strong>
+                        <a href="/files/Pristupnica.doc" target="_blank" class="thumbnail">
+                            <img src="/files/Pristupnica.png" alt="Pristupnica u nacionalnu Aikido federaciju Srbije">
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

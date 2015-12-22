@@ -23,7 +23,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 // Site routes
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
-Route::get('/novosti', 'HomeController@index');
+Route::get('/dogadjaji', 'HomeController@index');
 
 Route::get('/about', 'HomeController@about');
 Route::get('/o_nama', 'HomeController@about');
