@@ -62,14 +62,16 @@
 
         	$.get('/contact/clubs', function (clubs, err) {
         		$.each(clubs, function(index, club) {
-		            map.addMarker({
-		                lat: club.club_lat,
-		                lng: club.club_lon,
-		                title: 'Aikido klub ' + club.club_name,
-		                infoWindow: {
-		                    content: '<h3>Aikido klub '+ club.club_name +'</h3><h5>Website: <a href="'+ club.club_url +'" target="_blank">Aikido klub ' + club.club_name + ' websajt</a></h5><h5>Email: <a href="mailto:' + club.club_email + '" target="_blank">' + club.club_email + '</a></h5><h5>Tel: <a href="tel:' + club.club_phone + '" target="_blank">' + club.club_phone + '</a></h5>'
-		                }
-		            });
+        			if (club && club.club_lat && club.club_lon) {
+			            map.addMarker({
+			                lat: club.club_lat,
+			                lng: club.club_lon,
+			                title: 'Aikido klub ' + club.club_name,
+			                infoWindow: {
+			                    content: '<h3>Aikido klub '+ club.club_name +'</h3><h5>Website: <a href="'+ club.club_url +'" target="_blank">Aikido klub ' + club.club_name + ' websajt</a></h5><h5>Email: <a href="mailto:' + club.club_email + '" target="_blank">' + club.club_email + '</a></h5><h5>Tel: <a href="tel:' + club.club_phone + '" target="_blank">' + club.club_phone + '</a></h5>'
+			                }
+			            });
+        			}
         		});
         	});
         });
