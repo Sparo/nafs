@@ -23,6 +23,9 @@
                                             @endif
                                         @endforeach
                                     @endif
+                                    @if($coach->coach_title === 'Shihan')
+                                        Aikido Schule Basel
+                                    @endif
                                 </small>
                             </h3>
                         </div>

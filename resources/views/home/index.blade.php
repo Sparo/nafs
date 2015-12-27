@@ -19,7 +19,7 @@
 							<h3>
 								{{ $event->event_title }} <br />
 								<small>{{ $event->event_type }}</small> <br />
-								@if ($event->event_type === 'Seminar')
+								@if (strtolower($event->event_type) === 'seminar')
 									<small>{{ date('d. m. Y', strtotime($event->event_start_time)) }}</small>
 								@else
 									<small>{{ date('d. m. Y', strtotime($event->event_start_time)) . ' - ' . date('d. m. Y', strtotime($event->event_end_time)) }}</small>
