@@ -9235,38 +9235,6 @@ body {
 
 .navbar-header {
   min-height: 125px;
-  background-image: url("/img/novagodina2016.jpg");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-@media screen and (min-width: 768px) {
-  .navbar-header {
-    background-image: none;
-  }
-}
-
-#navigation > div > div.navbar-header.page-scroll > a > img {
-  width: 40%;
-}
-
-@media screen and (min-width: 500px) {
-  #navigation > div > div.navbar-header.page-scroll > a > img {
-    width: 60%;
-  }
-}
-
-@media screen and (min-width: 610px) {
-  #navigation > div > div.navbar-header.page-scroll > a > img {
-    width: 80%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  #navigation > div > div.navbar-header.page-scroll > a > img {
-    width: 100%;
-  }
 }
 
 .container {
@@ -9289,15 +9257,7 @@ body {
 }
 
 #page-header {
-  background-image: none;
-}
-
-@media screen and (min-width: 768px) {
-  #page-header {
-    background-image: url("/img/novagodina2016.jpg");
-    background-position: center;
-    background-size: contain;
-  }
+  background-image: url("/img/bg.jpg");
 }
 
 #page-header .page-heading {
@@ -9306,17 +9266,6 @@ body {
 
 #page-header .page-heading hr {
   border-color: #666;
-}
-
-#page-header .page-heading h1 {
-  font-size: 70px;
-}
-
-.col-sm-6 a:hover,
-.col-sm-6 a:focus,
-.col-sm-4 a:hover,
-.col-sm-4 a:focus {
-  text-decoration: none;
 }
 
 @font-face {
@@ -9354,8 +9303,4 @@ body {
 #panorama {
   height: 300px;
   background: #6699cc;
-}
-
-.hide-for-new-year {
-  display: none !important;
 }

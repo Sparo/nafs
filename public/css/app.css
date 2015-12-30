@@ -10,6 +10,38 @@
 
 .navbar-header {
   min-height: 125px;
+  background-image: url("/img/novagodina2016.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-header {
+    background-image: none;
+  }
+}
+
+#navigation > div > div.navbar-header.page-scroll > a > img {
+  width: 40%;
+}
+
+@media screen and (min-width: 500px) {
+  #navigation > div > div.navbar-header.page-scroll > a > img {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 610px) {
+  #navigation > div > div.navbar-header.page-scroll > a > img {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #navigation > div > div.navbar-header.page-scroll > a > img {
+    width: 100%;
+  }
 }
 
 .container {
@@ -32,7 +64,15 @@
 }
 
 #page-header {
-  background-image: url("/img/bg.jpg");
+  background-image: none;
+}
+
+@media screen and (min-width: 768px) {
+  #page-header {
+    background-image: url("/img/novagodina2016.jpg");
+    background-position: center;
+    background-size: contain;
+  }
 }
 
 #page-header .page-heading {
@@ -89,4 +129,8 @@
 #panorama {
   height: 300px;
   background: #6699cc;
+}
+
+.hide-for-new-year {
+  display: none !important;
 }

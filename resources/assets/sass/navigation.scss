@@ -7,6 +7,26 @@
 
 .navbar-header {
 	min-height: 125px;
+	background-image: url('/img/novagodina2016.jpg');
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	@media screen and (min-width: 768px) {
+		background-image: none;
+	}
+}
+
+#navigation > div > div.navbar-header.page-scroll > a > img {
+	width: 40%;
+	@media screen and (min-width: 500px) {
+		width: 60%;
+	}
+	@media screen and (min-width: 610px) {
+		width: 80%;
+	}
+	@media screen and (min-width: 768px) {
+		width: 100%;
+	}
 }
 
 .container {
