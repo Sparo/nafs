@@ -1,6 +1,6 @@
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" id="page-header">
+    <header class="intro-header bg" id="page-header">
         <div class="container">
             <div class="row">
                 <div class="col-xs-10 col-xs-offset-1">

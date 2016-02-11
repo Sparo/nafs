@@ -9235,10 +9235,6 @@ body {
 
 .navbar-header {
   min-height: 125px;
-  background-image: url("/img/novagodina2016.jpg");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
 @media screen and (min-width: 768px) {
@@ -9286,18 +9282,6 @@ body {
 .caption > .description {
   max-height: 100px;
   overflow: hidden;
-}
-
-#page-header {
-  background-image: none;
-}
-
-@media screen and (min-width: 768px) {
-  #page-header {
-    background-image: url("/img/novagodina2016.jpg");
-    background-position: center;
-    background-size: contain;
-  }
 }
 
 #page-header .page-heading {
@@ -9356,6 +9340,16 @@ body {
   background: #6699cc;
 }
 
-.hide-for-new-year {
-  display: none !important;
+.bg,
+.bg-nav {
+  background-image: url("/img/bg.jpg");
+  background-repeat: repeat;
+  background-position: top left;
+  background-size: initial;
+}
+
+@media screen and (min-width: 768px) {
+  .bg-nav {
+    background-image: none;
+  }
 }

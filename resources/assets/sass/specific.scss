@@ -1,3 +1,11 @@
-.hide-for-new-year {
-	display: none !important;
+.bg, .bg-nav {
+	background-image: url('/img/bg.jpg');
+    background-repeat: repeat;
+    background-position: top left;
+    background-size: initial;
+}
+.bg-nav {
+    @media screen and (min-width: 768px) {
+    	background-image: none;
+    }
 }
